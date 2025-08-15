@@ -4,4 +4,7 @@ pydantic
 scikit-learn
 pandas
 joblib
+plotly
+matplotlib
+seaborn
 numpy
