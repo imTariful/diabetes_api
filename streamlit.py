@@ -8,9 +8,11 @@ import json
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 import altair as alt
 
-# Absolute paths for model and metrics (for local testing)
-MODEL_PATH = r'C:\Users\TARIF\tariful.py\diabetes_api\diabetes_model.pkl'
-METRICS_PATH = r'C:\Users\TARIF\tariful.py\diabetes_api\metrics.json'
+# Paths (use absolute for local, relative for deployment)
+MODEL_PATH = r'C:\Users\TARIF\tariful.py\diabetes_api\diabetes_model.pkl'  # Local
+METRICS_PATH = r'C:\Users\TARIF\tariful.py\diabetes_api\metrics.json'      # Local
+# MODEL_PATH = 'diabetes_model.pkl'  # Uncomment for Streamlit Cloud
+# METRICS_PATH = 'metrics.json'      # Uncomment for Streamlit Cloud
 DATASET_URL = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.csv"
 
 # Load the trained model
@@ -140,7 +142,7 @@ elif page == "Dataset Overview":
         'Outcome': ['Non-Diabetic', 'Diabetic'],
         'Percentage': [outcome_counts[0], outcome_counts[1]]
     })
-    chart = alt.Chart(outcome_df).mark_bar().encode(
+    chart = alt.Chart(outcome_df).anquest_bar().encode(
         x=alt.X('Outcome', title='Outcome'),
         y=alt.Y('Percentage', title='Percentage (%)'),
         color=alt.Color('Outcome', scale=alt.Scale(scheme='set2'))
